@@ -2,8 +2,8 @@
     <!-- Base application theme. -->
     <style name="Theme.Calculator" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/purple_500</item>
-        <item name="colorPrimaryVariant">@color/purple_700</item>
+        <item name="colorPrimary">@color/background_dark_gray</item>
+        <item name="colorPrimaryVariant">@color/background_dark_gray</item>
         <item name="colorOnPrimary">@color/white</item>
         <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/teal_200</item>
@@ -13,4 +13,57 @@
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
     </style>
+
+    <style name="button_numbers">
+        <item name="android:layout_width">@dimen/button_size</item>
+        <item name="android:layout_height">@dimen/button_size</item>
+        <item name="android:textSize">@dimen/button_text_size</item>
+        <item name="android:layout_gravity">fill</item>
+        <item name="android:layout_rowWeight">1</item>
+        <item name="android:layout_columnWeight">1</item>
+        <item name="android:gravity">center</item>
+        <item name="android:clickable">true</item>
+        <item name="android:background">@drawable/button_number_selector</item>
+        <item name="android:textColor">@drawable/button_number_text_selector</item>
+    </style>
+
+    <style name="button_action">
+        <item name="android:layout_width">@dimen/button_size</item>
+        <item name="android:layout_height">@dimen/button_size</item>
+        <item name="android:textSize">@dimen/button_text_size</item>
+        <item name="android:layout_gravity">fill</item>
+        <item name="android:layout_rowWeight">1</item>
+        <item name="android:layout_columnWeight">1</item>
+        <item name="android:gravity">center</item>
+        <item name="android:clickable">true</item>
+        <item name="android:background">@drawable/button_number_selector</item>
+        <item name="android:textColor">@drawable/button_number_text_selector2</item>
+    </style>
+
+    <style name="button_two_rows_height">
+        <item name="android:layout_width">@dimen/button_size</item>
+        <item name="android:layout_height">@dimen/button_size</item>
+        <item name="android:textSize">@dimen/button_text_size</item>
+        <item name="android:layout_rowSpan">2</item>
+        <item name="android:layout_column">3</item>
+        <item name="android:layout_gravity">fill</item>
+        <item name="android:gravity">center</item>
+        <item name="android:clickable">true</item>
+        <item name="android:background">@drawable/button_number_selector</item>
+        <item name="android:textColor">@drawable/button_number_text_selector</item>
+    </style>
+
+    <style name="button_all_column_width">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">@dimen/button_size</item>
+        <item name="android:textSize">@dimen/button_text_size</item>
+        <item name="android:layout_rowWeight">1</item>
+        <item name="android:layout_columnSpan">4</item>
+        <item name="android:layout_gravity">fill</item>
+        <item name="android:gravity">center</item>
+        <item name="android:clickable">true</item>
+        <item name="android:background">@drawable/button_number_selector</item>
+        <item name="android:textColor">@drawable/button_number_text_selector</item>
+    </style>
+
 </resources>
