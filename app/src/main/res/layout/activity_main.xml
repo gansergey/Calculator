@@ -1,18 +1,114 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/background_dark_gray"
+    android:orientation="vertical"
     tools:context=".MainActivity">
 
     <TextView
-        android:layout_width="wrap_content"
+        android:id="@+id/txt_result"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_weight="1"
+        android:background="@drawable/background_main_text"
+        android:padding="@dimen/txt_display_padding"
+        android:text="@string/txt_display"
+        android:textColor="@color/light_gray"
+        android:textSize="@dimen/txt_display_size" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <GridLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_weight="1"
+        android:alignmentMode="alignBounds"
+        android:columnCount="4"
+        android:rowOrderPreserved="false"
+        android:useDefaultMargins="true">
+
+        <TextView
+            android:id="@+id/btn_div"
+            style="@style/button_action"
+            android:text="@string/btn_div" />
+
+        <TextView
+            android:id="@+id/btn_multiply"
+            style="@style/button_action"
+            android:text="@string/btn_multiply" />
+
+        <TextView
+            android:id="@+id/btn_minus"
+            style="@style/button_action"
+            android:text="@string/btn_minus" />
+
+        <TextView
+            android:id="@+id/btn_comma"
+            style="@style/button_action"
+            android:text="@string/btn_comma" />
+
+        <TextView
+            android:id="@+id/btn_7"
+            style="@style/button_numbers"
+            android:text="@string/txt_7" />
+
+        <TextView
+            android:id="@+id/btn_8"
+            style="@style/button_numbers"
+            android:text="@string/txt_8" />
+
+        <TextView
+            android:id="@+id/btn_9"
+            style="@style/button_numbers"
+            android:text="@string/txt_9" />
+
+        <TextView
+            android:id="@+id/btn_0"
+            style="@style/button_numbers"
+            android:text="@string/txt_0" />
+
+        <TextView
+            android:id="@+id/btn_4"
+            style="@style/button_numbers"
+            android:text="@string/txt_4" />
+
+        <TextView
+            android:id="@+id/btn_5"
+            style="@style/button_numbers"
+            android:text="@string/txt_5" />
+
+        <TextView
+            android:id="@+id/btn_6"
+            style="@style/button_numbers"
+            android:text="@string/txt_6" />
+
+        <TextView
+            android:id="@+id/btn_plus"
+            style="@style/button_action"
+            android:text="@string/btn_plus" />
+
+        <TextView
+            android:id="@+id/btn_1"
+            style="@style/button_numbers"
+            android:text="@string/txt_1" />
+
+        <TextView
+            android:id="@+id/btn_2"
+            style="@style/button_numbers"
+            android:text="@string/txt_2" />
+
+        <TextView
+            android:id="@+id/btn_3"
+            style="@style/button_numbers"
+            android:text="@string/txt_3" />
+
+        <TextView
+            android:id="@+id/btn_result"
+            style="@style/button_action"
+            android:text="@string/btn_result" />
+
+    </GridLayout>
+
+
+</androidx.appcompat.widget.LinearLayoutCompat>
