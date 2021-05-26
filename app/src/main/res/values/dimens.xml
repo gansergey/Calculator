@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="txt_display_padding">24dp</dimen>
+    <dimen name="txt_display_size">46sp</dimen>
+
+    <dimen name="button_size">1dp</dimen>
+    <dimen name="button_text_size">26sp</dimen>
+
+    <dimen name="grid_layout_height">0dp</dimen>
+    <dimen name="layout_height">0dp</dimen>
+
+    <dimen name="switch_padding">16dp</dimen>
+
+</resources>
