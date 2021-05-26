@@ -2,19 +2,31 @@
 <androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     style="@style/main_layout"
+    android:orientation="horizontal"
     tools:context=".MainActivity">
 
-    <androidx.appcompat.widget.SwitchCompat
-        android:id="@+id/switch_theme"
+    <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="@dimen/switch_padding" />
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/txt_result"
-        style="@style/main_text" />
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/switch_theme"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/switch_padding" />
 
-    <GridLayout style="@style/grid">
+        <TextView
+            android:id="@+id/txt_result"
+            style="@style/main_text"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+    <GridLayout
+        style="@style/grid"
+        android:layout_height="match_parent">
 
         <TextView
             android:id="@+id/btn_div"

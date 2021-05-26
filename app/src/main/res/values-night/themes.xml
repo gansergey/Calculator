@@ -2,9 +2,9 @@
     <!-- Base application theme. -->
     <style name="Theme.Calculator" parent="Theme.MaterialComponents.DayNight.NoActionBar">
 
-        <item name="colorPrimary">@color/light_gray</item>
-        <item name="colorPrimaryVariant">@color/light_gray</item>
-        <item name="colorOnPrimary">@color/light_gray</item>
+        <item name="colorPrimary">@color/background_dark_gray</item>
+        <item name="colorPrimaryVariant">@color/background_dark_gray</item>
+        <item name="colorOnPrimary">@color/background_dark_gray</item>
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
 
     </style>
@@ -12,7 +12,7 @@
     <style name="main_layout">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">match_parent</item>
-        <item name="android:background">@color/light_gray</item>
+        <item name="android:background">@color/background_dark_gray</item>
         <item name="android:orientation">vertical</item>
     </style>
 
@@ -31,9 +31,9 @@
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">0dp</item>
         <item name="android:layout_weight">1</item>
-        <item name="android:background">@drawable/background_main_text_light</item>
+        <item name="android:background">@drawable/background_main_text</item>
         <item name="android:padding">@dimen/txt_display_padding</item>
-        <item name="android:textColor">@color/background_dark_gray</item>
+        <item name="android:textColor">@color/light_gray</item>
         <item name="android:textSize">@dimen/txt_display_size</item>
         <item name="android:text">@string/txt_display</item>
     </style>
@@ -47,12 +47,12 @@
         <item name="android:layout_columnWeight">1</item>
         <item name="android:gravity">center</item>
         <item name="android:clickable">true</item>
-        <item name="android:background">@drawable/button_number_selector_light</item>
-        <item name="android:textColor">@drawable/button_number_text_selector_light</item>
+        <item name="android:background">@drawable/button_number_selector</item>
+        <item name="android:textColor">@drawable/button_number_text_selector</item>
     </style>
 
     <style name="button_action" parent="button_numbers">
-        <item name="android:textColor">@drawable/button_number_text_selector2_light</item>
+        <item name="android:textColor">@drawable/button_number_text_selector2</item>
     </style>
 
     <style name="button_all_column_width" parent="button_numbers">

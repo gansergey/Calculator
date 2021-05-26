@@ -3,10 +3,11 @@
     <string name="txt_display">0</string>
     <string name="btn_multiply">*</string>
     <string name="btn_minus">-</string>
-    <string name="btn_comma">,</string>
+    <string name="btn_dot">.</string>
     <string name="btn_plus">+</string>
     <string name="btn_result">=</string>
     <string name="btn_div">/</string>
+    <string name="btn_c">C</string>
 
     <string name="txt_0">0</string>
     <string name="txt_1">1</string>
