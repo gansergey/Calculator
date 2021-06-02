@@ -12,4 +12,9 @@
 
     <dimen name="switch_padding">16dp</dimen>
 
+    <dimen name="button_settings_padding">6dp</dimen>
+    <dimen name="button_settings_height">56dp</dimen>
+
+    <dimen name="switch_padding_theme">16dp</dimen>
+
 </resources>

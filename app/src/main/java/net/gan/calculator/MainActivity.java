@@ -1,27 +1,36 @@
 package net.gan.calculator;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
-import androidx.appcompat.widget.SwitchCompat;
 
 public class MainActivity extends AppCompatActivity {
 
     TextView txtResult;
-    SwitchCompat switchTheme;
 
     private final static String KEY_CALCULATION = "Calculation";
     private final static String DEFAULT_DISPLAY_NUMBER = "0";
+
     Calculation calculation;
+
+    Settings settings;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         initializing();
+        settings = new Settings();
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        setTheme();
     }
 
     @Override
@@ -44,10 +53,9 @@ public class MainActivity extends AppCompatActivity {
 
         calculation = new Calculation();
 
-        switchTheme = findViewById(R.id.switch_theme);
-
-        switchTheme.setOnClickListener(v -> {
-            changeTheme();
+        findViewById(R.id.btn_settings).setOnClickListener(v -> {
+            Intent openSettings = new Intent(this, SettingsActivity.class);
+            startActivity(openSettings);
         });
 
         findViewById(R.id.btn_0).setOnClickListener(v -> {
@@ -135,27 +143,18 @@ public class MainActivity extends AppCompatActivity {
             txtResult.setText(calculation.getInfo());
             calculation.clear();
         });
+
     }
 
-    private void changeTheme() {
-        if (switchTheme.isChecked()) {
-            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
-        } else {
-            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+    private void setTheme() {
+        String themeValue = getSharedPreferences(settings.getPrefName(), MODE_PRIVATE)
+                .getString(settings.getKEY_THEME(), null);
+        if (themeValue != null && !themeValue.isEmpty()) {
+            if (themeValue.equals(settings.getKEY_VALUE_DARK_THEME())) {
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+            } else {
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+            }
         }
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-

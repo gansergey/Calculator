@@ -5,11 +5,6 @@ import android.os.Parcelable;
 
 public class Calculation implements Parcelable {
 
-    private boolean firsOrSecondNumber;
-
-    private boolean permissionEnterOperation;
-    private boolean permissionEnterResult;
-
     private StringBuilder number1;
     private StringBuilder number2;
     private StringBuilder infoActionOnDisplay;
@@ -17,15 +12,17 @@ public class Calculation implements Parcelable {
     private String activeOperation;
     private String lastResult; //Нужно для сохранения данных результата Parcelable
 
+    private int counterOperation;
+    private boolean oneNumberOrTwoNumber;
+
     public Calculation() {
+        setDefaultValue();
         clear();
     }
 
     protected Calculation(Parcel in) {
-        firsOrSecondNumber = in.readByte() != 0;
-        permissionEnterOperation = in.readByte() != 0;
-        permissionEnterResult = in.readByte() != 0;
         activeOperation = in.readString();
+        lastResult = in.readString();
     }
 
     public static final Creator<Calculation> CREATOR = new Creator<Calculation>() {
@@ -41,25 +38,24 @@ public class Calculation implements Parcelable {
     };
 
     public void numberClick(String number) {
-
-        if (firsOrSecondNumber) {
+        counterOperation = 0;
+        if (oneNumberOrTwoNumber) {
             number1.append(number);
-            permissionEnterOperation = true; //Разрешаем вводить знак операции
         } else {
             number2.append(number);
-            permissionEnterResult = true; //Разрешаем вычислять результат после ввода второго числа
         }
         infoActionOnDisplay.append(number);
     }
 
     public void operationClick(String operation) {
-        if (permissionEnterOperation) {
-            firsOrSecondNumber = false; //После операции по условию заполняем второе число
-            activeOperation = operation;
-            infoActionOnDisplay.append(operation);
+        if (number1.length() > 0) {
+            oneNumberOrTwoNumber = false;
+            if (counterOperation == 0) {
+                counterOperation++;
+                activeOperation = operation;
+                infoActionOnDisplay.append(operation);
+            }
         }
-        setDefaultValue();
-        permissionEnterOperation = false;//Блокируем внесении операции до ввода числа
     }
 
     public String getInfo() {
@@ -72,7 +68,7 @@ public class Calculation implements Parcelable {
 
     public void calculateResult() {
         float result;
-        if (permissionEnterResult) {
+        if (number1.length() > 0 && number2.length() > 0 && activeOperation.length() > 0) {
             switch (activeOperation) {
                 case ("/"):
                     result = Float.parseFloat(number1.toString()) / Float.parseFloat(number2.toString());
@@ -90,19 +86,20 @@ public class Calculation implements Parcelable {
                     result = 0;
                     break;
             }
-            infoActionOnDisplay.append("=" + "\n");
+            infoActionOnDisplay.append("= \n");
             infoActionOnDisplay.append(result);
             lastResult = infoActionOnDisplay.toString();
         }
+        clear();
     }
 
     public void clear() {
         number1 = new StringBuilder();
         number2 = new StringBuilder();
         infoActionOnDisplay = new StringBuilder();
-        firsOrSecondNumber = true;//По условию true начинаем заполнение первого числа
-        permissionEnterOperation = false;//По услови false запрещаем ставить знаки операций
-        permissionEnterResult = false;//Запрещаем вычислять результат пока не ввели второе число
+        oneNumberOrTwoNumber = true;
+        counterOperation  = 0;
+        activeOperation = "";
     }
 
     @Override
@@ -112,10 +109,8 @@ public class Calculation implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
-        dest.writeByte((byte) (firsOrSecondNumber ? 1 : 0));
-        dest.writeByte((byte) (permissionEnterOperation ? 1 : 0));
-        dest.writeByte((byte) (permissionEnterResult ? 1 : 0));
         dest.writeString(activeOperation);
+        dest.writeString(lastResult);
     }
 
     public void setDefaultValue() {

@@ -11,11 +11,13 @@
         android:layout_weight="1"
         android:orientation="vertical">
 
-        <androidx.appcompat.widget.SwitchCompat
-            android:id="@+id/switch_theme"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="@dimen/switch_padding" />
+        <TextView
+            android:id="@+id/btn_settings"
+            style="@style/button_numbers"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/button_settings_height"
+            android:layout_margin="@dimen/button_settings_padding"
+            android:text="@string/btn_settings" />
 
         <TextView
             android:id="@+id/txt_result"

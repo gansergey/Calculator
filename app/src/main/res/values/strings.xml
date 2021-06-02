@@ -7,7 +7,8 @@
     <string name="btn_plus">+</string>
     <string name="btn_result">=</string>
     <string name="btn_div">/</string>
-    <string name="btn_c">C</string>
+    <string name="btn_c" translatable="false">C</string>
+    <string name="btn_settings">Настройки</string>
 
     <string name="txt_0">0</string>
     <string name="txt_1">1</string>
@@ -19,5 +20,8 @@
     <string name="txt_7">7</string>
     <string name="txt_8">8</string>
     <string name="txt_9">9</string>
+
+    <string name="switch_dark_mode">Включена тёмная тема</string>
+    <string name="switch_light_mode">Включена светлая тема</string>
 
 </resources>
